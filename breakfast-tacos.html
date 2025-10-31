@@ -9,12 +9,10 @@
     "@context": "https://schema.org",
     "@type": "Recipe",
     "name": "Breakfast Tacos",
-    "author": {
-      "@type": "Person",
-      "name": "Lewis"
-    },
+    "author": { "@type": "Person", "name": "Lewis" },
     "description": "High-protein breakfast tacos made with veggie sausage, egg substitute, fat-free cheddar, and low-carb tortillas.",
-    "recipeYield": "1",
+    "image": "https://lewislivingston-king.github.io/King-Lew-Recipes/images.breakfast-tacos.jpg",
+    "recipeYield": "8",
     "prepTime": "PT5M",
     "cookTime": "PT10M",
     "totalTime": "PT15M",
@@ -25,66 +23,94 @@
       "2 Zero Net Carb Cutting Tortillas"
     ],
     "recipeInstructions": [
-      {
-        "@type": "HowToStep",
-        "text": "Cook veggie sausage links in a skillet over medium heat until browned and heated through."
-      },
-      {
-        "@type": "HowToStep",
-        "text": "Scramble Egg Beater in a nonstick pan until set."
-      },
-      {
-        "@type": "HowToStep",
-        "text": "Warm tortillas in a dry skillet or microwave."
-      },
-      {
-        "@type": "HowToStep",
-        "text": "Fill each tortilla with scrambled eggs, sausage, and shredded cheese."
-      },
-      {
-        "@type": "HowToStep",
-        "text": "Serve immediately. Optional: top with salsa or avocado."
-      }
+      { "@type": "HowToStep", "text": "Scramble Egg Beater in a nonstick pan until set." },
+      { "@type": "HowToStep", "text": "Warm tortillas in a dry skillet or microwave." },
+      { "@type": "HowToStep", "text": "Cook veggie sausage links in a skillet over medium heat until browned and heated through." },
+      { "@type": "HowToStep", "text": "Fill each tortilla with scrambled eggs, sausage, and shredded cheese." },
+      { "@type": "HowToStep", "text": "Serve immediately. Optional: top with salsa or avocado." }
     ],
     "nutrition": {
       "@type": "NutritionInformation",
-      "servingSize": "1 plate",
-      "calories": "465 kcal",
-      "fatContent": "24 g",
-      "saturatedFatContent": "3 g",
-      "transFatContent": "0 g",
-      "monounsaturatedFatContent": "2 g",
-      "polyunsaturatedFatContent": "1 g",
-      "cholesterolContent": "20.1 mg",
-      "sodiumContent": "1111.6 mg",
-      "potassiumContent": "491.1 mg",
-      "carbohydrateContent": "19.6 g",
-      "fiberContent": "9.9 g",
-      "sugarContent": "1.1 g",
-      "proteinContent": "41.9 g"
+      "servingSize": "1 taco",
+      "calories": "357 kcal",
+      "fatContent": "21 g",
+      "saturatedFatContent": "8 g",
+      "polyunsaturatedFatContent": "10 g",
+      "transFatContent": "1 g",
+      "cholesterolContent": "101 mg",
+      "sodiumContent": "920 mg",
+      "carbohydrateContent": "9 g",
+      "fiberContent": "3 g",
+      "sugarContent": "5 g",
+      "proteinContent": "33 g"
     }
   }
   </script>
+  <style>
+    body { font-family: system-ui, Arial; background: #fdfdfd; margin: 0; padding: 20px; }
+    .card { max-width: 900px; margin: 0 auto; background: #fff; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+    h1 { font-size: 1.8rem; margin-bottom: 10px; }
+    img { max-width: 100%; border-radius: 6px; margin-bottom: 20px; }
+    .metrics { margin-bottom: 20px; }
+    .metrics strong { display: inline-block; width: 120px; }
+    ul, ol { margin-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    td { padding: 6px; border-bottom: 1px solid #eee; }
+    td:first-child { font-weight: bold; }
+  </style>
 </head>
 <body>
-  <h1>Breakfast Tacos</h1>
-  <p>High-protein breakfast tacos made with veggie sausage, egg substitute, fat-free cheddar, and low-carb tortillas.</p>
+  <article class="card">
+    <img src="images.breakfast-tacos.jpg" alt="Breakfast Tacos">
 
-  <h2>Ingredients</h2>
-  <ul>
-    <li>1 cup Egg Beater</li>
-    <li>0.5 cup Shredded Mild Cheddar Cheese, Fat Free</li>
-    <li>4 links Veggie Sausage Links</li>
-    <li>2 Zero Net Carb Cutting Tortillas</li>
-  </ul>
+    <h1>Breakfast Tacos</h1>
+    <p>High-protein breakfast tacos made with veggie sausage, egg substitute, fat-free cheddar, and low-carb tortillas.</p>
 
-  <h2>Instructions</h2>
-  <ol>
-    <li>Cook veggie sausage links in a skillet over medium heat until browned and heated through.</li>
-    <li>Scramble Egg Beater in a nonstick pan until set.</li>
-    <li>Warm tortillas in a dry skillet or microwave.</li>
-    <li>Fill each tortilla with scrambled eggs, sausage, and shredded cheese.</li>
-    <li>Serve immediately. Optional: top with salsa or avocado.</li>
-  </ol>
+    <div class="metrics">
+      <p><strong>Prep Time:</strong> 5 minutes</p>
+      <p><strong>Cook Time:</strong> 10 minutes</p>
+      <p><strong>Total Time:</strong> 15 minutes</p>
+      <p><strong>Servings:</strong> 8</p>
+      <p><strong>Calories:</strong> 357 kcal</p>
+    </div>
+
+    <h2>Ingredients</h2>
+    <ul>
+      <li>1 cup Egg Beater</li>
+      <li>0.5 cup Shredded Mild Cheddar Cheese, Fat Free</li>
+      <li>4 links Veggie Sausage Links</li>
+      <li>2 Zero Net Carb Cutting Tortillas</li>
+    </ul>
+
+    <h2>Cooking Instructions</h2>
+    <h3>Preparation</h3>
+    <ul>
+      <li>Scramble Egg Beater in a nonstick pan until set.</li>
+      <li>Warm tortillas in a dry skillet or microwave.</li>
+    </ul>
+
+    <h3>Cooking</h3>
+    <ul>
+      <li>Cook veggie sausage links in a skillet over medium heat until browned and heated through.</li>
+      <li>Fill each tortilla with scrambled eggs, sausage, and shredded cheese.</li>
+      <li>Serve immediately. Optional: top with salsa or avocado.</li>
+    </ul>
+
+    <h2>Nutrition Facts (per serving)</h2>
+    <table>
+      <tr><td>Calories</td><td>357 kcal</td></tr>
+      <tr><td>Total Fat</td><td>21 g</td></tr>
+      <tr><td>Saturated Fat</td><td>8 g</td></tr>
+      <tr><td>Polyunsaturated Fat</td><td>10 g</td></tr>
+      <tr><td>Trans Fat</td><td>1 g</td></tr>
+      <tr><td>Cholesterol</td><td>101 mg</td></tr>
+      <tr><td>Sodium</td><td>920 mg</td></tr>
+      <tr><td>Carbohydrates</td><td>9 g</td></tr>
+      <tr><td>Fiber</td><td>3 g</td></tr>
+      <tr><td>Sugar</td><td>5 g</td></tr>
+      <tr><td>Net Carbs</td><td>6 g</td></tr>
+      <tr><td>Protein</td><td>33 g</td></tr>
+    </table>
+  </article>
 </body>
 </html>
