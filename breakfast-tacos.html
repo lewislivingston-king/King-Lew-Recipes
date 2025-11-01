@@ -5,20 +5,45 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Breakfast Tacos — King Lew Recipes</title>
   <meta name="description" content="High-protein breakfast tacos made with veggie sausage, egg substitute, fat-free cheddar, and low-carb tortillas." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": "Breakfast Tacos",
+    "author": { "@type": "Person", "name": "Lewis" },
+    "description": "High-protein breakfast tacos made with veggie sausage, egg substitute, fat-free cheddar, and low-carb tortillas.",
+    "recipeYield": "8",
+    "prepTime": "PT5M",
+    "cookTime": "PT10M",
+    "totalTime": "PT15M",
+    "recipeIngredient": [
+      "1 cup Egg Beater",
+      "0.5 cup Shredded Mild Cheddar Cheese, Fat Free",
+      "4 links Veggie Sausage Links",
+      "2 Zero Net Carb Cutting Tortillas"
+    ],
+    "recipeInstructions": [
+      { "@type": "HowToStep", "text": "Gather ingredients; chop veggie sausage; measure shredded cheese." },
+      { "@type": "HowToStep", "text": "Cook veggie sausage links in a skillet over medium heat until browned and heated through." },
+      { "@type": "HowToStep", "text": "Scramble Egg Beater in a nonstick pan until set." },
+      { "@type": "HowToStep", "text": "Warm tortillas in a dry skillet or microwave; fill with eggs, sausage, and cheese; serve." }
+    ]
+  }
+  </script>
   <style>
     body { font-family: system-ui, Arial, sans-serif; background:#fafafa; margin:0; padding:20px; color:#111 }
     .card { max-width:900px; margin:0 auto; background:#fff; padding:20px; border:1px solid #e6e6e6; border-radius:8px }
     img { width:100%; height:auto; border-radius:6px; display:block; margin-bottom:16px }
     h1 { margin:0 0 8px 0; font-size:1.9rem }
-    p.lead { margin:0 0 16px 0; color:#333 }
+    .desc-nutrition { background:#fffef7; padding:12px; border-radius:6px; margin-bottom:14px; }
+    .nutr-title { font-weight:700; text-decoration:underline; font-size:14px; margin-bottom:6px }
+    .nutr-line { font-size:13px; line-height:1.3 }
     .metrics { margin-bottom:16px }
     .metrics strong { display:inline-block; width:120px }
     ul { margin-left:1.2rem }
-    h2,h3 { margin-top:18px }
     table { width:100%; border-collapse:collapse; margin-top:10px }
     td { padding:8px; border-bottom:1px solid #efefef }
     td:first-child { font-weight:700; width:40% }
-    .desc-nutrition { background:#fffef7; padding:10px; border-radius:6px; margin-bottom:12px; font-weight:600 }
   </style>
 </head>
 <body>
@@ -27,15 +52,27 @@
 
     <h1>Breakfast Tacos</h1>
 
-    <!-- Description box (Samsung Food will read this text) -->
+    <!-- Description box — nutrition line formatted per template -->
     <div class="desc-nutrition">
-      <!-- Nutritional line formatted per template: bold, underlined, italicized, with spaces and perpendicular slashes -->
-      <div>
-        <strong><u><em>Nutrition Serving: 4  /  Calories: 357kcal (18%)  /  Carbohydrates: 9g (3%)  /  Protein: 33g (66%)  /  Fat: 21g (32%)  /  Saturated Fat: 8g (50%)  /  Polyunsaturated Fat: 10g  /  Trans Fat: 1g  /  Cholesterol: 101mg (34%)  /  Sodium: 920mg (40%)  /  Fiber: 3g (13%)  /  Sugar: 5g (6%)  /  Net Carbs: 6g (12%)</em></u></strong>
+      <div class="nutr-title"><strong><u>Nutrition</u></strong></div>
+
+      <div class="nutr-line">
+        <strong><em>Serving</em></strong> <strong>/</strong>
+        <strong><em>Calories</em></strong>: 357kcal (18%) <strong>/</strong>
+        <strong><em>Carbohydrates</em></strong>: 9g (3%) <strong>/</strong>
+        <strong><em>Protein</em></strong>: 33g (66%) <strong>/</strong>
+        <strong><em>Fat</em></strong>: 21g (32%) <strong>/</strong>
+        <strong><em>Saturated Fat</em></strong>: 8g (50%) <strong>/</strong>
+        <strong><em>Polyunsaturated Fat</em></strong>: 10g <strong>/</strong>
+        <strong><em>Trans Fat</em></strong>: 1g <strong>/</strong>
+        <strong><em>Cholesterol</em></strong>: 101mg (34%) <strong>/</strong>
+        <strong><em>Sodium</em></strong>: 920mg (40%) <strong>/</strong>
+        <strong><em>Fiber</em></strong>: 3g (13%) <strong>/</strong>
+        <strong><em>Sugar</em></strong>: 5g (6%) <strong>/</strong>
+        <strong><em>Net Carbs</em></strong>: 6g (12%)
       </div>
 
-      <!-- Human readable description -->
-      <div style="margin-top:8px; font-weight:500">
+      <div style="margin-top:8px; font-weight:600">
         High-protein breakfast tacos made with veggie sausage, egg substitute, fat-free cheddar, and low-carb tortillas.
       </div>
     </div>
