@@ -1,0 +1,54 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "http://yourdomain.com/schemas/RK_COMPLEX_SENTENCE.json",
+    "sentence_text": "I will not speak much more with you, for the ruler of the world is coming, and he has nothing in Me; but so that the world may know that I love the Father, I do exactly as the Father commanded Me.",
+    "clauses": [
+        {
+            "id": "IC1",
+            "type": "Independent",
+            "nodes": [
+                {"id": "n1", "text": "I", "role": "subject"},
+                {"id": "n2", "text": "will speak", "role": "verb",
+                    "modifiers": [
+                        {"id": "n3", "text": "not", "role": "modifier", "head_id": "n2"},
+                        {"id": "n4", "text": "much more", "role": "modifier", "head_id": "n2"},
+                        {"id": "n5", "text": "with you", "role": "modifier", "head_id": "n2", "type": "prep_phrase"}
+                    ],
+                    // SC1: Adverbial Clause of Reason attached to the verb "will speak"
+                    "subordinate_clause": { 
+                        "clause_id": "SC1", 
+                        "conjunction_text": "for",
+                        "connector_type": "adverbial",
+                        "nodes": [ /* ruler | is coming... */ ] 
+                    }
+                }
+            ],
+            "coordination": [
+                {"id": "c1", "type": "coordinate_additive", "conjunction_text": "and", "target_clause_id": "IC2"},
+                {"id": "c2", "type": "coordinate_contrastive", "conjunction_text": "but", "target_clause_id": "IC3"}
+            ]
+        },
+        { /* IC2 Definition */ },
+        {
+            "id": "IC3",
+            "type": "Independent",
+            "nodes":},
+                            {"id": "n22", "text": "may know", "role": "verb",
+                                // SC3: Noun Clause acting as the Direct Object of "may know"
+                                "direct_object": { 
+                                    "clause_id": "SC3",
+                                    "type": "Subordinate_Noun",
+                                    "nodes": [ /* I | love | Father */ ] 
+                                }
+                            }
+                        ]
+                    },
+                    "modifiers":
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
