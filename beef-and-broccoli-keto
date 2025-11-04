@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Keto Beef & Broccoli Stir-Fry — Recipe</title>
+  
+  <style>
+    body { font-family: system-ui, Arial; background: #fdfdfd; margin: 0; padding: 20px; }
+    .card { max-width: 900px; margin: 0 auto; background: #fff; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+    h1 { font-size: 1.8rem; margin-bottom: 10px; }
+    img { max-width: 100%; border-radius: 6px; margin-bottom: 20px; }
+    .metrics { margin-bottom: 20px; }
+    .metrics strong { display: inline-block; width: 120px; }
+    ul, ol { margin-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    td { padding: 6px; border-bottom: 1px solid #eee; }
+    td:first-child { font-weight: bold; }
+    .nutrition-description { font-size: 14px; margin-bottom: 10px; }
+    .time-metric { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+  <article class="card">
+    <img src="images.beef-and-broccoli-keto.jpg" alt="Keto Beef and Broccoli Stir-Fry">
+
+    <h1>Keto Beef & Broccoli Stir-Fry (G Hughes)</h1>
+
+    <h2>Description</h2>
+    <p class="nutrition-description">
+      <u><b>Nutrition (per serving)</b></u> : <i>Serving</i> : <b>1/6th of recipe</b> | <i>Calories</i> : <b>551kcal</b> (Approx.) | <i>Total Fat</i> : <b>29g</b> (37%) | <i>Saturated Fat</i> : <b>10g</b> (50%) | <i>Total Carbohydrate</i> : <b>12g</b> (4%) | <i>Dietary Fiber</i> : <b>4g</b> (14%) | <i>Protein</i> : <b>68g</b> (Approx.) | <i>Net Carbs</i> : <b>8g</b>
+      <br>
+      A high-protein, low-carb rendition of the Chinese classic, using the entire bottle of G Hughes Sugar Free Stir Fry Sauce for a rich, keto-friendly flavor.
+    </p>
+
+    <p class="time-metric">Prep Time: 15 minutes</p>
+    <p class="time-metric">Cook Time: 15 minutes</p>
+    <p class="time-metric">Total Time: 30 minutes</p>
+
+    <h2>Ingredients (For 6 Servings)</h2>
+    <ul>
+      <li>3.5 lbs (56 oz), Flank Steak or Sirloin, thinly sliced</li>
+      <li>12 oz, G Hughes Sugar Free Stir Fry Sauce</li>
+      <li>6 cups, Broccoli Florets, fresh or frozen</li>
+      <li>3 Tbsp, Avocado or Coconut Oil</li>
+      <li>1 tsp, Ginger Paste or minced fresh ginger</li>
+      <li>(Optional) 2 Tbsp, Liquid Aminos or low-sodium Soy Sauce</li>
+      <li>(Optional) 1 tsp, Xanthan Gum (for thickening)</li>
+      <li>(Optional) 1 tsp, Sesame Seeds (for garnish)</li>
+    </ul>
+
+    <h2>Cooking Instructions</h2>
+    <h3>Preparation</h3>
+    <ol>
+      <li>Thinly slice the beef against the grain. (If using optional Liquid Aminos, toss beef with 1 Tbsp and set aside.)</li>
+      <li>Chop broccoli into florets.</li>
+    </ol>
+
+    <h3>Stir-Fry</h3>
+    <ol start="3">
+      <li>Heat 1 Tbsp of oil in a large wok or skillet over medium-high heat. Add broccoli and stir-fry for 3-5 minutes until tender-crisp. Remove and set aside.</li>
+      <li>Add the remaining 2 Tbsp of oil to the hot wok. Add beef in batches (if necessary) and sear for 1-2 minutes per side until browned.</li>
+      <li>Return all beef and the reserved broccoli to the wok.</li>
+      <li>Pour in the entire 12 oz bottle of G Hughes Sugar Free Stir Fry Sauce and the 1 tsp of ginger. Stir thoroughly to coat all ingredients.</li>
+      <li>(Optional Thicken): If desired, mix 1 tsp of Xanthan Gum with 1 Tbsp cold water, pour into the stir-fry, and stir until the sauce thickens.</li>
+      <li>Serve immediately, garnished with sesame seeds if desired.</li>
+    </ol>
+
+    </article>
+</body>
+</html>
