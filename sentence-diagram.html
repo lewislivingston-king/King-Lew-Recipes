@@ -1,136 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Reed-Kellogg Diagram — John 14:26 (no labels)</title>
+  <meta charset="UTF-8" />
+  <title>Forsen Diagram — John 14:26</title>
   <style>
-    body { font-family: Georgia, serif; background:#f7f7f7; padding:24px; color:#111; }
-    h1 { font-size:20px; margin-bottom:8px; }
-    svg { background:#fff; border:1px solid #ddd; display:block; margin-bottom:18px; }
-    .word { font-size:14px; fill:#000; }
-    .line { stroke:#222; stroke-width:2; }
-    .slant { stroke:#222; stroke-width:1.6; }
+    body {
+      font-family: Georgia, serif;
+      background: #f9f9f9;
+      padding: 2em;
+    }
+    svg {
+      background: #fff;
+      border: 1px solid #ccc;
+    }
+    text {
+      font-size: 16px;
+    }
+    line {
+      stroke: black;
+      stroke-width: 2;
+    }
+    .slant {
+      stroke: black;
+      stroke-width: 1.5;
+    }
   </style>
 </head>
 <body>
-  <h1>Reed-Kellogg Diagram: John 14:26 (visual only)</h1>
+  <h1>Forsen Diagram: John 14:26</h1>
+  <svg width="1200" height="600">
 
-  <!-- The SVG below draws the diagram structure and places the words.
-       It intentionally contains NO labels or section annotations. -->
-  <svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Main baseline -->
+    <line x1="100" y1="300" x2="1100" y2="300" />
 
-    <!-- Baseline -->
-    <line class="line" x1="80" y1="320" x2="1120" y2="320" />
+    <!-- Subject: He -->
+    <text x="120" y="290">He</text>
+    <line x1="160" y1="300" x2="160" y2="270" />
 
-    <!-- Vertical divider between subject and predicate -->
-    <line class="line" x1="320" y1="260" x2="320" y2="380" />
+    <!-- Verb: will teach -->
+    <text x="200" y="290">will teach</text>
 
-    <!-- SUBJECT REGION (left) -->
-    <text class="word" x="95" y="280">But</text>
+    <!-- Direct Object: you -->
+    <line x1="300" y1="300" x2="300" y2="270" />
+    <text x="305" y="265">you</text>
 
-    <text class="word" x="120" y="315">the</text>
-    <line class="slant" x1="150" y1="320" x2="150" y2="300" />
-    <text class="word" x="160" y="315">Helper</text>
+    <!-- Object: all things -->
+    <text x="350" y="290">all things</text>
 
-    <!-- Appositive baseline for "the Holy Spirit" -->
-    <line class="line" x1="200" y1="260" x2="420" y2="260" />
-    <text class="word" x="210" y="248">the Holy Spirit</text>
+    <!-- Conjunction: and -->
+    <text x="450" y="290">and</text>
 
-    <!-- Relative clause baseline attached beneath appositive -->
-    <line class="line" x1="420" y1="260" x2="420" y2="220" />
-    <line class="line" x1="420" y1="220" x2="760" y2="220" />
-    <text class="word" x="430" y="210">whom</text>
-    <text class="word" x="520" y="210">the Father</text>
-    <text class="word" x="660" y="210">will send</text>
+    <!-- Second verb: bring -->
+    <text x="500" y="290">bring</text>
 
-    <!-- Prepositional phrase under the relative clause -->
-    <line class="slant" x1="740" y1="220" x2="820" y2="260" />
-    <line class="line" x1="820" y1="260" x2="920" y2="260" />
-    <text class="word" x="830" y="250">in My name</text>
+    <!-- Prepositional phrase: to your remembrance -->
+    <line class="slant" x1="580" y1="300" x2="660" y2="340" />
+    <line x1="660" y1="340" x2="820" y2="340" />
+    <text x="670" y="335">to</text>
+    <text x="710" y="335">your</text>
+    <text x="760" y="335">remembrance</text>
 
-    <!-- MAIN PREDICATE REGION (right of divider) -->
-    <text class="word" x="340" y="310">He</text>
+    <!-- Relative clause: all that I said to you -->
+    <line x1="820" y1="340" x2="820" y2="370" />
+    <line x1="820" y1="370" x2="1020" y2="370" />
+    <text x="830" y="365">all</text>
+    <line x1="870" y1="370" x2="870" y2="400" />
+    <text x="875" y="395">that</text>
+    <text x="920" y="365">I said</text>
+    <line x1="980" y1="370" x2="980" y2="400" />
+    <text x="985" y="395">to you</text>
 
-    <text class="word" x="420" y="305">will teach</text>
+    <!-- Introductory phrase: But the Helper, the Holy Spirit -->
+    <text x="120" y="200">But</text>
+    <text x="160" y="200">the Helper</text>
+    <text x="260" y="200">(the Holy Spirit)</text>
 
-    <!-- direct object "you" above a vertical connector -->
-    <line class="line" x1="520" y1="320" x2="520" y2="290" />
-    <text class="word" x="525" y="285">you</text>
-
-    <text class="word" x="560" y="305">all things</text>
-
-    <text class="word" x="670" y="305">and</text>
-
-    <text class="word" x="720" y="305">bring</text>
-
-    <!-- prepositional complement beneath 'bring' -->
-    <line class="slant" x1="800" y1="320" x2="880" y2="360" />
-    <line class="line" x1="880" y1="360" x2="1040" y2="360" />
-    <text class="word" x="810" y="355">to</text>
-    <text class="word" x="900" y="355">your</text>
-    <text class="word" x="960" y="355">remembrance</text>
-
-    <!-- Relative clause modifying 'remembrance' -->
-    <line class="line" x1="1040" y1="360" x2="1040" y2="400" />
-    <line class="line" x1="1040" y1="400" x2="1160" y2="400" />
-    <text class="word" x="1050" y="392">all</text>
-
-    <line class="slant" x1="1090" y1="400" x2="1090" y2="430" />
-    <text class="word" x="1095" y="428">that</text>
-
-    <line class="line" x1="1100" y1="430" x2="1260" y2="430" />
-    <text class="word" x="1110" y="418">I</text>
-    <text class="word" x="1170" y="418">said</text>
-
-    <!-- 'to you' under the subclause -->
-    <line class="slant" x1="1210" y1="430" x2="1210" y2="460" />
-    <line class="line" x1="1210" y1="460" x2="1270" y2="460" />
-    <text class="word" x="1215" y="455">to</text>
-    <text class="word" x="1250" y="455">you</text>
+    <!-- Relative clause: whom the Father will send in My name -->
+    <line x1="360" y1="200" x2="360" y1="230" />
+    <line x1="360" y1="230" x2="600" y2="230" />
+    <text x="370" y="225">whom</text>
+    <text x="420" y="225">the Father</text>
+    <text x="520" y="225">will send</text>
+    <line class="slant" x1="580" y1="230" x2="660" y2="270" />
+    <line x1="660" y1="270" x2="760" y2="270" />
+    <text x="670" y="265">in</text>
+    <text x="710" y="265">My</text>
+    <text x="740" y="265">name</text>
 
   </svg>
-
-  <!-- Detailed textual summary below the diagram -->
-  <div>
-    <h2>Clause and modification summary</h2>
-
-    <p>
-      Main structure: The core independent clause is the compound-predicate clause whose subject is the pronoun "He" and whose predicates are "will teach" and "bring." The diagram places that subject and the compound predicate on the principal baseline, with a vertical divider separating the subject area (left) from the predicate area (right).
-    </p>
-
-    <p>
-      Introductory item: "But" is an introducing/conjunctive element set before the subject. It establishes discourse contrast/transition but does not serve as subject or predicate and is placed above/left of the subject baseline.
-    </p>
-
-    <p>
-      Subject apposition: The subject pronoun "He" refers back to the noun phrase rendered on the left side: "the Helper, the Holy Spirit, whom the Father will send in My name." That entire leftward noun phrase functions as the referent (antecedent) for "He." Within that noun phrase, "the Holy Spirit" is in apposition to "the Helper," so the appositive is diagrammed on a small subordinate baseline adjacent to the head noun.
-    </p>
-
-    <p>
-      Relative clause modifying the appositive: "whom the Father will send in My name" is a relative clause attached to the appositive "the Holy Spirit." In the diagram it appears on its own subordinate baseline beneath the appositive. Within that relative clause, "the Father" is the subject, "will send" is the verb, and "whom" functions as the relative object of "send." The prepositional phrase "in My name" modifies "will send" and is diagrammed beneath the relative-clause verb.
-    </p>
-
-    <p>
-      Compound predicate details: The predicate portion contains two coordinated actions sharing the same subject "He":
-      - First action: "will teach you all things." "Will teach" is the verb; "you" is the direct object (diagrammed on a short vertical connector) and "all things" is the noun phrase indicating the scope/extent of the teaching.
-      - Coordinating conjunction "and" links the two predicate actions and sits on the baseline between them.
-      - Second action: "bring to your remembrance all that I said to you." "Bring" is the verb; its complement is a prepositional phrase "to your remembrance" (diagrammed beneath the verb with "to" on a slanted connector and "your remembrance" on a subordinate horizontal object line).
-    </p>
-
-    <p>
-      Object of "bring": The phrase "all that I said to you" functions as the direct object (or object-equivalent) of "bring." In the diagram, "all" begins a subordinate connection to a relative/subordinate clause introduced by "that." The relative/subordinate clause "that I said to you" has its own baseline: "I" is the subject, "said" is the verb, and the prepositional phrase "to you" is attached beneath "said" as the indirect object/recipient.
-    </p>
-
-    <p>
-      Summary of modification relationships:
-      - "But" modifies the sentence discourse (introductory).
-      - "the Helper" is the head noun of the left noun phrase; "the Holy Spirit" is an appositive renaming that head.
-      - The relative clause "whom the Father will send in My name" modifies "the Holy Spirit" (the appositive/head referent).
-      - The pronoun "He" is co-referential with "the Helper / the Holy Spirit" and serves as the grammatical subject of the main clause.
-      - "will teach" takes "you" and "all things" as its objects/complements.
-      - "bring" takes the prepositional complement "to your remembrance" and the object phrase "all that I said to you," where "that I said to you" is a subordinate clause modifying "all."
-    </p>
-
-  </div>
 </body>
 </html>
