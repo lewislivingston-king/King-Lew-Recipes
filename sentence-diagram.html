@@ -1,89 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Reed-Kellogg Diagram</title>
+  <meta charset="utf-8" />
+  <title>Reed-Kellogg Diagram — John 14:26</title>
   <style>
-    body {
-      font-family: 'Georgia', serif;
-      background-color: #f9f9f9;
-      padding: 2em;
-    }
-    svg {
-      border: 1px solid #ccc;
-      background-color: #fff;
-    }
-    text {
-      font-size: 16px;
-    }
-    line {
-      stroke: black;
-      stroke-width: 2;
-    }
+    body { font-family: Georgia, serif; background:#f7f7f7; padding:24px; }
+    h1 { font-size:20px; margin-bottom:8px; }
+    svg { background:#fff; border:1px solid #ddd; }
+    .word { font-size:14px; fill:#000; }
+    .label { font-size:12px; fill:#004080; font-style:italic; }
+    .line { stroke:#222; stroke-width:2; }
+    .slant { stroke:#222; stroke-width:1.6; }
+    .guide { stroke:#bbb; stroke-dasharray:4 3; stroke-width:1; }
   </style>
 </head>
 <body>
   <h1>Reed-Kellogg Diagram: John 14:26</h1>
-  <svg width="1200" height="600">
-    <!-- Main horizontal line -->
-    <line x1="100" y1="300" x2="1100" y2="300" />
 
-    <!-- Subject: He -->
-    <text x="120" y="290">He</text>
+  <!-- Sentence: 
+    "But the Helper, the Holy Spirit, whom the Father will send in My name, He will teach you all things, and bring to your remembrance all that I said to you."
+  -->
 
-    <!-- Verb: will teach -->
-    <text x="250" y="290">will teach</text>
+  <svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
 
-    <!-- Object: you -->
-    <line x1="350" y1="300" x2="350" y2="270" />
-    <text x="355" y="265">you</text>
+    <!-- Baseline -->
+    <line class="line" x1="80" y1="320" x2="1120" y2="320" />
 
-    <!-- Object: all things -->
-    <text x="400" y="290">all things</text>
+    <!-- Vertical divider between subject and predicate (extends through baseline) -->
+    <line class="line" x1="320" y1="260" x2="320" y2="380" />
 
-    <!-- Coordinating conjunction: and -->
-    <text x="500" y="290">and</text>
+    <!-- SUBJECT (left of divider) -->
+    <!-- "But" (introductory conjunction/adverbial) placed above baseline left -->
+    <text class="word" x="95" y="280">But</text>
+    <text class="label" x="95" y="295">introductory</text>
 
-    <!-- Second verb: bring -->
-    <text x="550" y="290">bring</text>
+    <!-- Subject noun phrase on baseline left of divider: "the Helper" -->
+    <text class="word" x="120" y="315">the</text>
+    <line class="slant" x1="150" y1="320" x2="150" y2="300" />
+    <text class="word" x="160" y="315">Helper</text>
+    <text class="label" x="160" y="330">subject (head)</text>
 
-    <!-- Object: to your remembrance -->
-    <line x1="650" y1="300" x2="650" y2="330" />
-    <line x1="650" y1="330" x2="850" y2="330" />
-    <text x="660" y="325">to</text>
-    <line x1="700" y1="330" x2="700" y2="360" />
-    <text x="705" y="355">your</text>
-    <text x="750" y="325">remembrance</text>
+    <!-- Appositive set off by commas: "the Holy Spirit" as appositive to Helper -->
+    <!-- Appositive vertical connector down from near "Helper" -->
+    <line class="line" x1="260" y1="320" x2="260" y2="260" />
+    <text class="word" x="200" y="315">,</text>
 
-    <!-- Relative clause: all that I said to you -->
-    <line x1="850" y1="330" x2="850" y2="360" />
-    <line x1="850" y1="360" x2="1050" y2="360" />
-    <text x="860" y="355">all</text>
-    <line x1="900" y1="360" x2="900" y2="390" />
-    <text x="905" y="385">that</text>
-    <text x="950" y="355">I said</text>
-    <line x1="1000" y1="360" x2="1000" y2="390" />
-    <text x="1005" y="385">to you</text>
+    <!-- Appositive baseline (smaller) -->
+    <line class="line" x1="200" y1="260" x2="420" y2="260" />
+    <text class="word" x="210" y="248">the Holy Spirit</text>
+    <text class="label" x="210" y="265">appositive</text>
 
-    <!-- Introductory phrase: But the Helper, the Holy Spirit -->
-    <line x1="100" y1="200" x2="400" y2="200" />
-    <text x="110" y="190">But</text>
-    <line x1="150" y1="200" x2="150" y2="170" />
-    <text x="155" y="165">the</text>
-    <text x="190" y="190">Helper</text>
+    <!-- Relative clause modifying "Helper": "whom the Father will send in My name" -->
+    <!-- Relative connector down from appositive baseline -->
+    <line class="line" x1="420" y1="260" x2="420" y2="220" />
+    <line class="line" x1="420" y1="220" x2="760" y2="220" />
+    <text class="word" x="430" y="210">whom</text>
+    <text class="label" x="430" y="226">relative pronoun (obj of send)</text>
 
-    <!-- Appositive: the Holy Spirit -->
-    <line x1="250" y1="200" x2="250" y2="170" />
-    <text x="255" y="165">the Holy Spirit</text>
+    <!-- "the Father" on relative baseline -->
+    <text class="word" x="520" y="210">the Father</text>
+    <text class="label" x="520" y="226">relative clause subject</text>
 
-    <!-- Relative clause: whom the Father will send in My name -->
-    <line x1="300" y1="200" x2="300" y2="230" />
-    <line x1="300" y1="230" x2="550" y2="230" />
-    <text x="310" y="225">whom</text>
-    <text x="360" y="225">the Father</text>
-    <text x="460" y="225">will send</text>
-    <line x1="550" y1="230" x2="550" y2="260" />
-    <text x="555" y="255">in My name</text>
+    <!-- verb in relative clause -->
+    <text class="word" x="660" y="210">will send</text>
+    <text class="label" x="660" y="226">relative clause verb</text>
+
+    <!-- prepositional phrase in relative clause: "in My name" under 'will send' -->
+    <line class="slant" x1="740" y1="220" x2="820" y2="260" />
+    <line class="line" x1="820" y1="260" x2="920" y2="260" />
+    <text class="word" x="830" y="250">in</text>
+    <text class="word" x="860" y="250">My</text>
+    <text class="word" x="900" y="250">name</text>
+    <text class="label" x="830" y="270">prepositional phrase (modifier)</text>
+
+    <!-- MAIN PREDICATE (right of divider): "He will teach you all things and bring to your remembrance all that I said to you." -->
+
+    <!-- "He" subject pronoun placed left of predicate baseline but right of divider (dislocated pronoun referring to Helper) -->
+    <text class="word" x="340" y="310">He</text>
+    <text class="label" x="340" y="326">subject pronoun (referent)</text>
+
+    <!-- Main verb (compound predicate): first verb "will teach" -->
+    <text class="word" x="420" y="305">will teach</text>
+    <text class="label" x="420" y="322">verb (aux + main)</text>
+
+    <!-- Direct object of teach: "you" (connected with vertical line up) -->
+    <line class="line" x1="520" y1="320" x2="520" y2="290" />
+    <text class="word" x="525" y="285">you</text>
+    <text class="label" x="525" y="300">direct object</text>
+
+    <!-- Object/complement: "all things" (noun phrase to the right of 'you') -->
+    <text class="word" x="560" y="305">all things</text>
+    <text class="label" x="560" y="322">object complement / extent</text>
+
+    <!-- Coordinating conjunction "and" between predicates -->
+    <text class="word" x="670" y="305">and</text>
+    <text class="label" x="670" y="322">coordinator</text>
+
+    <!-- Second verb of compound predicate: "bring" -->
+    <text class="word" x="720" y="305">bring</text>
+    <text class="label" x="720" y="322">verb (compound)</text>
+
+    <!-- Indirect object / prepositional phrase functioning as complement: "to your remembrance" -->
+    <!-- Preposition "to" on slanted line below 'bring' -->
+    <line class="slant" x1="800" y1="320" x2="880" y2="360" />
+    <line class="line" x1="880" y1="360" x2="1040" y2="360" />
+    <text class="word" x="810" y="355">to</text>
+    <text class="word" x="900" y="355">your</text>
+    <text class="word" x="960" y="355">remembrance</text>
+    <text class="label" x="900" y="373">prepositional complement</text>
+
+    <!-- Appended relative clause modifying 'remembrance': "all that I said to you" -->
+    <!-- Connection down from 'remembrance' -->
+    <line class="line" x1="1040" y1="360" x2="1040" y2="400" />
+    <line class="line" x1="1040" y1="400" x2="1160" y2="400" />
+    <text class="word" x="1050" y="392">all</text>
+    <text class="label" x="1050" y="408">quantifier (modifies 'that' clause)</text>
+
+    <!-- 'that' on slanted connector down -->
+    <line class="slant" x1="1090" y1="400" x2="1090" y2="430" />
+    <text class="word" x="1095" y="428">that</text>
+    <text class="label" x="1095" y="444">relative pronoun (subordinator)</text>
+
+    <!-- Subclause baseline: "I said to you" -->
+    <line class="line" x1="1100" y1="430" x2="1260" y2="430" />
+    <text class="word" x="1110" y="418">I</text>
+    <text class="label" x="1110" y="436">subclause subject</text>
+
+    <text class="word" x="1170" y="418">said</text>
+    <text class="label" x="1170" y="436">subclause verb</text>
+
+    <!-- 'to you' as prepositional object under 'said' -->
+    <line class="slant" x1="1210" y1="430" x2="1210" y2="460" />
+    <line class="line" x1="1210" y1="460" x2="1270" y2="460" />
+    <text class="word" x="1215" y="455">to</text>
+    <text class="word" x="1250" y="455">you</text>
+    <text class="label" x="1250" y="473">prepositional object</text>
+
+    <!-- --- small legend for labels --- -->
+    <rect x="85" y="440" width="360" height="120" fill="#fcfcfc" stroke="#ddd"/>
+    <text class="label" x="100" y="460">Legend</text>
+    <text class="label" x="100" y="480">subject, predicate, objects, modifiers labeled in blue</text>
+    <text class="label" x="100" y="500">relative clauses and appositives shown as subordinate baselines</text>
+    <text class="label" x="100" y="520">lines: solid baseline/vertical; slants: modifiers/prepositions</text>
+
   </svg>
 </body>
 </html>
