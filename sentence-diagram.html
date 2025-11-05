@@ -1,54 +1,88 @@
-{
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "http://yourdomain.com/schemas/RK_COMPLEX_SENTENCE.json",
-    "sentence_text": "I will not speak much more with you, for the ruler of the world is coming, and he has nothing in Me; but so that the world may know that I love the Father, I do exactly as the Father commanded Me.",
-    "clauses": [
-        {
-            "id": "IC1",
-            "type": "Independent",
-            "nodes": [
-                {"id": "n1", "text": "I", "role": "subject"},
-                {"id": "n2", "text": "will speak", "role": "verb",
-                    "modifiers": [
-                        {"id": "n3", "text": "not", "role": "modifier", "head_id": "n2"},
-                        {"id": "n4", "text": "much more", "role": "modifier", "head_id": "n2"},
-                        {"id": "n5", "text": "with you", "role": "modifier", "head_id": "n2", "type": "prep_phrase"}
-                    ],
-                    // SC1: Adverbial Clause of Reason attached to the verb "will speak"
-                    "subordinate_clause": { 
-                        "clause_id": "SC1", 
-                        "conjunction_text": "for",
-                        "connector_type": "adverbial",
-                        "nodes": [ /* ruler | is coming... */ ] 
-                    }
-                }
-            ],
-            "coordination": [
-                {"id": "c1", "type": "coordinate_additive", "conjunction_text": "and", "target_clause_id": "IC2"},
-                {"id": "c2", "type": "coordinate_contrastive", "conjunction_text": "but", "target_clause_id": "IC3"}
-            ]
-        },
-        { /* IC2 Definition */ },
-        {
-            "id": "IC3",
-            "type": "Independent",
-            "nodes":},
-                            {"id": "n22", "text": "may know", "role": "verb",
-                                // SC3: Noun Clause acting as the Direct Object of "may know"
-                                "direct_object": { 
-                                    "clause_id": "SC3",
-                                    "type": "Subordinate_Noun",
-                                    "nodes": [ /* I | love | Father */ ] 
-                                }
-                            }
-                        ]
-                    },
-                    "modifiers":
-                            }
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reed–Kellogg Diagram Generator</title>
+<style>
+  body {
+    font-family: "Times New Roman", serif;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  svg {
+    border: 1px solid #ccc;
+    background-color: white;
+  }
+  text {
+    font-size: 16px;
+    text-anchor: middle;
+  }
+  line {
+    stroke: black;
+    stroke-width: 2;
+  }
+  .dotted {
+    stroke-dasharray: 4;
+  }
+</style>
+</head>
+<body>
+
+<svg id="diagram" width="1000" height="600"></svg>
+
+<script>
+const svg = document.getElementById("diagram");
+
+// Helper function to draw lines
+function drawLine(x1, y1, x2, y2, dotted=false) {
+  const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+  line.setAttribute("x1", x1);
+  line.setAttribute("y1", y1);
+  line.setAttribute("x2", x2);
+  line.setAttribute("y2", y2);
+  if (dotted) line.setAttribute("class", "dotted");
+  svg.appendChild(line);
 }
+
+// Helper function to add text
+function addText(x, y, textContent, color="black") {
+  const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  text.setAttribute("x", x);
+  text.setAttribute("y", y);
+  text.setAttribute("fill", color);
+  text.textContent = textContent;
+  svg.appendChild(text);
+}
+
+// Example: Diagram for "But the Helper, the Holy Spirit, whom the Father will send in My name, He will teach you all things."
+// You can edit these coordinates freely for each sentence (“snowflake diagrams”)
+drawLine(100, 200, 400, 200);  // main line
+drawLine(250, 200, 250, 250);  // subject-predicate divider
+addText(170, 190, "He", "black");
+addText(325, 190, "will teach", "black");
+
+// Objects/modifiers
+drawLine(400, 200, 500, 250); 
+addText(520, 270, "you (IO)", "blue");
+
+drawLine(400, 200, 600, 200);
+addText(620, 190, "all things (DO)", "blue");
+
+// Appositive phrase: "the Helper, the Holy Spirit"
+drawLine(120, 130, 200, 200, true);
+addText(150, 120, "the Helper", "darkgreen");
+addText(150, 100, "the Holy Spirit", "darkgreen");
+
+// Relative clause: "whom the Father will send in My name"
+drawLine(180, 150, 100, 250, true);
+addText(90, 270, "whom the Father will send", "purple");
+addText(120, 290, "in My name", "purple");
+
+addText(500, 400, "(Diagram generated as SVG)", "gray");
+</script>
+
+</body>
+</html>
