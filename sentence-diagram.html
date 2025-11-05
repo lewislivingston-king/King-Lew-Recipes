@@ -1,88 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reed–Kellogg Diagram Generator</title>
-<style>
-  body {
-    font-family: "Times New Roman", serif;
-    background-color: #fafafa;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-  }
-  svg {
-    border: 1px solid #ccc;
-    background-color: white;
-  }
-  text {
-    font-size: 16px;
-    text-anchor: middle;
-  }
-  line {
-    stroke: black;
-    stroke-width: 2;
-  }
-  .dotted {
-    stroke-dasharray: 4;
-  }
-</style>
+  <meta charset="UTF-8">
+  <title>Reed-Kellogg Diagram</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #f9f9f9;
+      padding: 2em;
+    }
+    svg {
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+    text {
+      font-size: 16px;
+    }
+    line {
+      stroke: black;
+      stroke-width: 2;
+    }
+  </style>
 </head>
 <body>
+  <h1>Reed-Kellogg Diagram: John 14:26</h1>
+  <svg width="1200" height="600">
+    <!-- Main horizontal line -->
+    <line x1="100" y1="300" x2="1100" y2="300" />
 
-<svg id="diagram" width="1000" height="600"></svg>
+    <!-- Subject: He -->
+    <text x="120" y="290">He</text>
 
-<script>
-const svg = document.getElementById("diagram");
+    <!-- Verb: will teach -->
+    <text x="250" y="290">will teach</text>
 
-// Helper function to draw lines
-function drawLine(x1, y1, x2, y2, dotted=false) {
-  const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-  line.setAttribute("x1", x1);
-  line.setAttribute("y1", y1);
-  line.setAttribute("x2", x2);
-  line.setAttribute("y2", y2);
-  if (dotted) line.setAttribute("class", "dotted");
-  svg.appendChild(line);
-}
+    <!-- Object: you -->
+    <line x1="350" y1="300" x2="350" y2="270" />
+    <text x="355" y="265">you</text>
 
-// Helper function to add text
-function addText(x, y, textContent, color="black") {
-  const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-  text.setAttribute("x", x);
-  text.setAttribute("y", y);
-  text.setAttribute("fill", color);
-  text.textContent = textContent;
-  svg.appendChild(text);
-}
+    <!-- Object: all things -->
+    <text x="400" y="290">all things</text>
 
-// Example: Diagram for "But the Helper, the Holy Spirit, whom the Father will send in My name, He will teach you all things."
-// You can edit these coordinates freely for each sentence (“snowflake diagrams”)
-drawLine(100, 200, 400, 200);  // main line
-drawLine(250, 200, 250, 250);  // subject-predicate divider
-addText(170, 190, "He", "black");
-addText(325, 190, "will teach", "black");
+    <!-- Coordinating conjunction: and -->
+    <text x="500" y="290">and</text>
 
-// Objects/modifiers
-drawLine(400, 200, 500, 250); 
-addText(520, 270, "you (IO)", "blue");
+    <!-- Second verb: bring -->
+    <text x="550" y="290">bring</text>
 
-drawLine(400, 200, 600, 200);
-addText(620, 190, "all things (DO)", "blue");
+    <!-- Object: to your remembrance -->
+    <line x1="650" y1="300" x2="650" y2="330" />
+    <line x1="650" y1="330" x2="850" y2="330" />
+    <text x="660" y="325">to</text>
+    <line x1="700" y1="330" x2="700" y2="360" />
+    <text x="705" y="355">your</text>
+    <text x="750" y="325">remembrance</text>
 
-// Appositive phrase: "the Helper, the Holy Spirit"
-drawLine(120, 130, 200, 200, true);
-addText(150, 120, "the Helper", "darkgreen");
-addText(150, 100, "the Holy Spirit", "darkgreen");
+    <!-- Relative clause: all that I said to you -->
+    <line x1="850" y1="330" x2="850" y2="360" />
+    <line x1="850" y1="360" x2="1050" y2="360" />
+    <text x="860" y="355">all</text>
+    <line x1="900" y1="360" x2="900" y2="390" />
+    <text x="905" y="385">that</text>
+    <text x="950" y="355">I said</text>
+    <line x1="1000" y1="360" x2="1000" y2="390" />
+    <text x="1005" y="385">to you</text>
 
-// Relative clause: "whom the Father will send in My name"
-drawLine(180, 150, 100, 250, true);
-addText(90, 270, "whom the Father will send", "purple");
-addText(120, 290, "in My name", "purple");
+    <!-- Introductory phrase: But the Helper, the Holy Spirit -->
+    <line x1="100" y1="200" x2="400" y2="200" />
+    <text x="110" y="190">But</text>
+    <line x1="150" y1="200" x2="150" y2="170" />
+    <text x="155" y="165">the</text>
+    <text x="190" y="190">Helper</text>
 
-addText(500, 400, "(Diagram generated as SVG)", "gray");
-</script>
+    <!-- Appositive: the Holy Spirit -->
+    <line x1="250" y1="200" x2="250" y2="170" />
+    <text x="255" y="165">the Holy Spirit</text>
 
+    <!-- Relative clause: whom the Father will send in My name -->
+    <line x1="300" y1="200" x2="300" y2="230" />
+    <line x1="300" y1="230" x2="550" y2="230" />
+    <text x="310" y="225">whom</text>
+    <text x="360" y="225">the Father</text>
+    <text x="460" y="225">will send</text>
+    <line x1="550" y1="230" x2="550" y2="260" />
+    <text x="555" y="255">in My name</text>
+  </svg>
 </body>
 </html>
