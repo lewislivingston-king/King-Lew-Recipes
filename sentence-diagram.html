@@ -1,88 +1,286 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reed–Kellogg Diagram Generator</title>
-<style>
-  body {
-    font-family: "Times New Roman", serif;
-    background-color: #fafafa;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-  }
-  svg {
-    border: 1px solid #ccc;
-    background-color: white;
-  }
-  text {
-    font-size: 16px;
-    text-anchor: middle;
-  }
-  line {
-    stroke: black;
-    stroke-width: 2;
-  }
-  .dotted {
-    stroke-dasharray: 4;
-  }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reed–Kellogg Diagram with POS Labels</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --line:#222;
+      --word-bg:#f7fbff;
+      --pos-color:#555;
+      --word-color:#000;
+      --accent:#0b63d6;
+      --font: "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    html,body{height:100%;margin:0;background:var(--bg);font-family:var(--font);}
+    header{padding:18px 24px;border-bottom:1px solid #eee;background:#fafafa}
+    h1{margin:0;font-size:18px;color:var(--accent)}
+    p.lead{margin:8px 0 0;color:#333;font-size:13px}
+    .wrap{padding:18px;display:flex;gap:18px;flex-wrap:wrap}
+    .canvas {
+      flex:1 1 900px;
+      min-width:320px;
+      background:linear-gradient(180deg,#fff,#fbfdff);
+      border:1px solid #e6eefc;
+      border-radius:8px;
+      padding:12px;
+      box-shadow:0 6px 18px rgba(10,30,80,0.04);
+    }
+    .controls{
+      width:320px;
+      min-width:260px;
+      max-height:80vh;
+      overflow:auto;
+      padding:12px;
+      border-radius:8px;
+      border:1px solid #eee;
+      background:#fff;
+    }
+    .controls h2{font-size:14px;margin:0 0 8px;color:#222}
+    .controls p{font-size:13px;color:#444;margin:0 0 12px}
+    svg{width:100%;height:72vh;border-radius:6px;background:transparent}
+    .word-box{cursor:move}
+    .word-text{font-weight:700;fill:var(--word-color)}
+    .pos-text{font-style:italic;fill:var(--pos-color);font-size:11px}
+    .connector{stroke:var(--line);stroke-width:1.6;fill:none}
+    .label-pill{font-size:12px;fill:#fff}
+    .hint{font-size:12px;color:#666;margin-top:8px}
+    .btn{display:inline-block;padding:8px 10px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-size:13px}
+    footer{padding:12px 24px;color:#666;font-size:12px}
+    /* small helper for mobile */
+    @media (max-width:900px){ .wrap{flex-direction:column} .controls{width:100%} .canvas{min-width:100%} }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Reed–Kellogg Diagram — Sentence with POS labels</h1>
+    <p class="lead">Interactive SVG diagram you can host on GitHub Pages. Drag words to adjust layout; positions are saved to localStorage.</p>
+  </header>
 
-<svg id="diagram" width="1000" height="600"></svg>
+  <div class="wrap">
+    <div class="canvas" id="canvasWrap">
+      <svg id="diagram" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0 0 L8 4 L0 8 z" fill="#222"/>
+          </marker>
+        </defs>
 
-<script>
-const svg = document.getElementById("diagram");
+        <!-- connectors will be injected here -->
+        <g id="connectors"></g>
 
-// Helper function to draw lines
-function drawLine(x1, y1, x2, y2, dotted=false) {
-  const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-  line.setAttribute("x1", x1);
-  line.setAttribute("y1", y1);
-  line.setAttribute("x2", x2);
-  line.setAttribute("y2", y2);
-  if (dotted) line.setAttribute("class", "dotted");
-  svg.appendChild(line);
-}
+        <!-- word groups -->
+        <g id="words"></g>
 
-// Helper function to add text
-function addText(x, y, textContent, color="black") {
-  const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-  text.setAttribute("x", x);
-  text.setAttribute("y", y);
-  text.setAttribute("fill", color);
-  text.textContent = textContent;
-  svg.appendChild(text);
-}
+        <!-- baseline (visual guide) -->
+        <line x1="60" y1="120" x2="1140" y2="120" stroke="#ddd" stroke-width="1" stroke-dasharray="6 6"/>
+      </svg>
+    </div>
 
-// Example: Diagram for "But the Helper, the Holy Spirit, whom the Father will send in My name, He will teach you all things."
-// You can edit these coordinates freely for each sentence (“snowflake diagrams”)
-drawLine(100, 200, 400, 200);  // main line
-drawLine(250, 200, 250, 250);  // subject-predicate divider
-addText(170, 190, "He", "black");
-addText(325, 190, "will teach", "black");
+    <aside class="controls">
+      <h2>Sentence</h2>
+      <p>Therefore, strengthen the hands that are weak and the knees that are feeble, and make straight paths for your feet, so that the limb which is lame may not be put out of joint, but rather be healed.</p>
 
-// Objects/modifiers
-drawLine(400, 200, 500, 250); 
-addText(520, 270, "you (IO)", "blue");
+      <h2>Controls</h2>
+      <p>Drag any word box to reposition it. Click <strong>Save layout</strong> to store positions in your browser. Use <strong>Reset</strong> to restore the default layout.</p>
 
-drawLine(400, 200, 600, 200);
-addText(620, 190, "all things (DO)", "blue");
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button id="saveBtn" class="btn">Save layout</button>
+        <button id="resetBtn" style="padding:8px 10px;border-radius:6px;background:#eee;border:0">Reset</button>
+      </div>
 
-// Appositive phrase: "the Helper, the Holy Spirit"
-drawLine(120, 130, 200, 200, true);
-addText(150, 120, "the Helper", "darkgreen");
-addText(150, 100, "the Holy Spirit", "darkgreen");
+      <p class="hint">Tip: After adjusting, copy the repo to GitHub and enable Pages to publish this page as a website.</p>
+    </aside>
+  </div>
 
-// Relative clause: "whom the Father will send in My name"
-drawLine(180, 150, 100, 250, true);
-addText(90, 270, "whom the Father will send", "purple");
-addText(120, 290, "in My name", "purple");
+  <footer>
+    <span>Diagram generated for the provided sentence. Words are labeled with parts of speech.</span>
+  </footer>
 
-addText(500, 400, "(Diagram generated as SVG)", "gray");
-</script>
+  <script>
+    // Data: words, POS, default positions (x,y in SVG coords), and connectors (from -> to)
+    const data = {
+      words: [
+        {id:"w1", text:"Therefore", pos:"adverb (conjunctive adverb)", x:80, y:40},
+        {id:"w2", text:"strengthen", pos:"verb (imperative)", x:260, y:40},
+        {id:"w3", text:"the", pos:"determiner", x:140, y:120},
+        {id:"w4", text:"hands", pos:"noun (pl)", x:220, y:120},
+        {id:"w5", text:"that", pos:"relative pronoun", x:220, y:180},
+        {id:"w6", text:"are", pos:"verb (linking)", x:280, y:180},
+        {id:"w7", text:"weak", pos:"adjective", x:340, y:180},
+        {id:"w8", text:"and", pos:"coordinating conjunction", x:380, y:120},
+        {id:"w9", text:"the", pos:"determiner", x:460, y:120},
+        {id:"w10", text:"knees", pos:"noun (pl)", x:540, y:120},
+        {id:"w11", text:"that", pos:"relative pronoun", x:540, y:180},
+        {id:"w12", text:"are", pos:"verb (linking)", x:600, y:180},
+        {id:"w13", text:"feeble", pos:"adjective", x:660, y:180},
+        {id:"w14", text:"make", pos:"verb (imperative)", x:820, y:40},
+        {id:"w15", text:"straight", pos:"adjective", x:760, y:120},
+        {id:"w16", text:"paths", pos:"noun (pl)", x:840, y:120},
+        {id:"w17", text:"for", pos:"preposition", x:920, y:120},
+        {id:"w18", text:"your", pos:"possessive determiner", x:980, y:120},
+        {id:"w19", text:"feet", pos:"noun (pl)", x:1040, y:120},
+        {id:"w20", text:"so that", pos:"subordinating conjunction", x:80, y:300},
+        {id:"w21", text:"the", pos:"determiner", x:220, y:360},
+        {id:"w22", text:"limb", pos:"noun (sing)", x:300, y:360},
+        {id:"w23", text:"which", pos:"relative pronoun", x:300, y:420},
+        {id:"w24", text:"is", pos:"verb (linking)", x:360, y:420},
+        {id:"w25", text:"lame", pos:"adjective", x:420, y:420},
+        {id:"w26", text:"may", pos:"modal auxiliary", x:520, y:360},
+        {id:"w27", text:"not", pos:"adverb (negation)", x:580, y:360},
+        {id:"w28", text:"be", pos:"auxiliary (passive)", x:640, y:360},
+        {id:"w29", text:"put", pos:"past participle (verb)", x:700, y:360},
+        {id:"w30", text:"out", pos:"adverb", x:760, y:360},
+        {id:"w31", text:"of", pos:"preposition", x:820, y:360},
+        {id:"w32", text:"joint", pos:"noun", x:880, y:360},
+        {id:"w33", text:"but", pos:"coordinating conjunction", x:520, y:460},
+        {id:"w34", text:"rather", pos:"adverb", x:580, y:460},
+        {id:"w35", text:"be", pos:"auxiliary (passive)", x:640, y:460},
+        {id:"w36", text:"healed", pos:"past participle (adj/verb)", x:700, y:460}
+      ],
+      connectors: [
+        // strengthen -> hands
+        {from:"w2", to:"w4"},
+        // hands -> relative clause
+        {from:"w4", to:"w5"},
+        {from:"w5", to:"w6"},
+        {from:"w6", to:"w7"},
+        // strengthen -> knees (via and)
+        {from:"w2", to:"w10"},
+        {from:"w10", to:"w11"},
+        {from:"w11", to:"w12"},
+        {from:"w12", to:"w13"},
+        // make -> paths
+        {from:"w14", to:"w16"},
+        {from:"w16", to:"w15"},
+        {from:"w16", to:"w17"},
+        {from:"w17", to:"w18"},
+        {from:"w18", to:"w19"},
+        // so that -> limb clause
+        {from:"w20", to:"w22"},
+        {from:"w22", to:"w23'},
+        {from:"w23", to:"w24'},
+        {from:"w24", to:"w25'},
+        // limb -> predicate (may not be put out of joint)
+        {from:"w22", to:"w26'},
+        {from:"w26", to:"w27'},
+        {from:"w27", to:"w28'},
+        {from:"w28", to:"w29'},
+        {from:"w29", to:"w30'},
+        {from:"w30", to:"w31'},
+        {from:"w31", to:"w32'},
+        // contrast -> healed
+        {from:"w29", to:"w36'},
+        {from:"w33", to:"w35'},
+        {from:"w34", to:"w35'}
+      ]
+    };
 
+    // Utility to create SVG elements
+    function svgEl(tag, attrs = {}) {
+      const el = document.createElementNS("http://www.w3.org/2000/svg", tag);
+      for (const k in attrs) el.setAttribute(k, attrs[k]);
+      return el;
+    }
+
+    const svg = document.getElementById('diagram');
+    const wordsGroup = document.getElementById('words');
+    const connectorsGroup = document.getElementById('connectors');
+
+    // Load saved positions if present
+    const saved = JSON.parse(localStorage.getItem('rk_layout_v1') || 'null');
+    if (saved && saved.words) {
+      for (const w of data.words) {
+        const s = saved.words.find(x => x.id === w.id);
+        if (s) { w.x = s.x; w.y = s.y; }
+      }
+    }
+
+    // Render words
+    function renderWords() {
+      wordsGroup.innerHTML = '';
+      for (const w of data.words) {
+        const g = svgEl('g', {class:'word-box', id:w.id, transform:`translate(${w.x},${w.y})`});
+        // background rect
+        const rect = svgEl('rect', {x:-6, y:-18, width: (w.text.length*8)+60, height:40, rx:6, fill:'#f7fbff', stroke:'#dfefff'});
+        rect.setAttribute('opacity', '0.98');
+        g.appendChild(rect);
+        // main word
+        const t = svgEl('text', {x:6, y:0, class:'word-text'});
+        t.textContent = w.text;
+        g.appendChild(t);
+        // pos label (smaller, below)
+        const p = svgEl('text', {x:6, y:18, class:'pos-text'});
+        p.textContent = w.pos;
+        g.appendChild(p);
+        wordsGroup.appendChild(g);
+
+        // make draggable
+        makeDraggable(g, w);
+      }
+    }
+
+    // Render connectors (straight lines between centers)
+    function renderConnectors() {
+      connectorsGroup.innerHTML = '';
+      for (const c of data.connectors) {
+        const from = data.words.find(x => x.id === c.from);
+        const to = data.words.find(x => x.id === c.to);
+        if (!from || !to) continue;
+        const fx = from.x + 40;
+        const fy = from.y + 6;
+        const tx = to.x + 40;
+        const ty = to.y + 6;
+        // draw a polyline with a small elbow for readability
+        const path = svgEl('path', {d: `M ${fx} ${fy} L ${ (fx+tx)/2 } ${fy} L ${ (fx+tx)/2 } ${ty} L ${tx} ${ty}`, class:'connector'});
+        connectorsGroup.appendChild(path);
+      }
+    }
+
+    // Dragging behavior
+    function makeDraggable(g, w) {
+      let isDown = false, startX=0, startY=0, origX=0, origY=0;
+      g.addEventListener('pointerdown', (ev) => {
+        isDown = true;
+        g.setPointerCapture(ev.pointerId);
+        startX = ev.clientX; startY = ev.clientY;
+        origX = w.x; origY = w.y;
+      });
+      window.addEventListener('pointermove', (ev) => {
+        if (!isDown) return;
+        const dx = (ev.clientX - startX) * (svg.viewBox.baseVal.width / svg.clientWidth);
+        const dy = (ev.clientY - startY) * (svg.viewBox.baseVal.height / svg.clientHeight);
+        w.x = origX + dx;
+        w.y = origY + dy;
+        g.setAttribute('transform', `translate(${w.x},${w.y})`);
+        renderConnectors();
+      });
+      window.addEventListener('pointerup', (ev) => {
+        if (!isDown) return;
+        isDown = false;
+        try { g.releasePointerCapture(ev.pointerId); } catch(e){}
+      });
+    }
+
+    // Save and reset
+    document.getElementById('saveBtn').addEventListener('click', () => {
+      const snapshot = { words: data.words.map(w => ({id:w.id,x:w.x,y:w.y})) };
+      localStorage.setItem('rk_layout_v1', JSON.stringify(snapshot));
+      alert('Layout saved to your browser storage.');
+    });
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      localStorage.removeItem('rk_layout_v1');
+      location.reload();
+    });
+
+    // Initial render
+    renderWords();
+    renderConnectors();
+
+    // Make SVG responsive to window resize by re-rendering connectors
+    window.addEventListener('resize', () => renderConnectors());
+  </script>
 </body>
 </html>
